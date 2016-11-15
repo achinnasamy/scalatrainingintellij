@@ -1,2 +1,0 @@
-# scalatrainingintellij
-Scala Training - IntelliJ 
