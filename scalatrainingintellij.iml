@@ -8,5 +8,18 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="scala-sdk-2.11.8" level="application" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Public/akka-2.3.15/lib/akka" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$/Public/akka-2.3.15/lib/akka" />
+        </SOURCES>
+        <jarDirectory url="file://$USER_HOME$/Public/akka-2.3.15/lib/akka" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/Public/akka-2.3.15/lib/akka" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>
