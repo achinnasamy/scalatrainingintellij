@@ -1,5 +1,6 @@
 package com.dmac.basic
 
+import scala.io.Source
 import scala.collection.mutable.ListBuffer
 
 object FileOperations extends App {
@@ -18,7 +19,7 @@ class FileOperations {
    */
   def readFile(fileName: String) : Unit = {
     
-    val file = io.Source.fromFile(fileName)
+    val file = Source.fromFile(fileName)
   
     for(line <- file.getLines())
       println(line)
@@ -29,7 +30,7 @@ class FileOperations {
   
   def readCSVFile(fileName: String) : Unit = {
     
-    val csvFile = io.Source.fromFile(fileName)
+    val csvFile = Source.fromFile(fileName)
   
     val list = new ListBuffer[AuthBean]
     
