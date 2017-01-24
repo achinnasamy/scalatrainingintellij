@@ -1,5 +1,7 @@
 package com.dmac.basic
 
+import scala.io.Source
+
 object XMLManipulation extends App {
   
   val processing = new XMLProcessing
@@ -11,8 +13,9 @@ object XMLManipulation extends App {
 class XMLProcessing {
   
   def readTheXML() {
-    
-    val file = io.Source.fromFile("D:/ac/data/food.xml")
+
+
+    val file = Source.fromFile("D:/ac/data/food.xml")
     val xmlFile = file.mkString
     
     println(xmlFile)
