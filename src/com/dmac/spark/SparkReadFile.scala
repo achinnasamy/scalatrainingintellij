@@ -16,7 +16,7 @@ object SparkReadFile {
 
     val sparkContext = new SparkContext(conf)
     val file = sparkContext.textFile("/Users/dharshekthvel/ac/auth.csv")
-    
+
 
     file.foreach(eachLine => println(eachLine))
 

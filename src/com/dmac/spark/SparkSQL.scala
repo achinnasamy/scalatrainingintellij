@@ -37,16 +37,25 @@ object SparkSQL extends App {
     csvDataFrame.createGlobalTempView("STRUCTUREDTABLE")
 
 
-  csvDataFrame.write.csv("")
+
 
 //  sparkSession.sql("SELECT _c0,_c1 FROM DATATABLE").show(100)
 
-  sparkSession.sql("SELECT _c0,_c1 FROM global_temp.STRUCTUREDTABLE").show(100)
+  //sparkSession.catalog.createExternalTable("SQL_TABLE","/Users/dharshekthvel/ac/storage")
 
-sparkSession.catalog.refreshTable("")
-  sparkSession.catalog.cacheTable("")
-  sparkSession.catalog.clearCache()
-  sparkSession.catalog.dropTempView("")
-sparkSession.catalog.dropGlobalTempView("")
-  sparkSession.catalog.createExternalTable("","")
+  val requiredDataFrame = sparkSession.sql("SELECT _c0,_c1 FROM global_temp.STRUCTUREDTABLE")
+//  requiredDataFrame.write.csv("/Users/dharshekthvel/ac/out.csvv")
+//  requiredDataFrame.write.parquet("/Users/dharshekthvel/ac/out.parquet")
+//  requiredDataFrame.write.json("/Users/dharshekthvel/ac/out.json")
+  requiredDataFrame.write.saveAsTable("/Users/dharshekthvel/ac/storage")
+
+  /* Spark Catalog */
+//  sparkSession.catalog.refreshTable("TABLE_NAME")
+//  sparkSession.catalog.cacheTable("TABLE_NAME")
+//  sparkSession.catalog.clearCache()
+//  sparkSession.catalog.dropTempView("TABLE_NAME")
+//  sparkSession.catalog.dropGlobalTempView("TABLE_NAME")
+//  sparkSession.catalog.createExternalTable("","")
+
+
 }
