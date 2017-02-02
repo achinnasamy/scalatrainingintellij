@@ -9,7 +9,9 @@ object SparkSessionElucidation extends App {
 
 
   val sparkSession = SparkSession.builder()
-                                 .appName("SparkJOB").master("local[*]").config("spark.local.dir","/Users/dharshekthvel/ac")
+                                 .appName("SparkJOB").master("local[*]")
+                                 .config("spark.local.dir","/Users/dharshekthvel/ac")
+                                 .config("spark.sql.codegen.wholeStage", "false")
                                  .getOrCreate()
   val sparkContext = sparkSession.sparkContext
 
