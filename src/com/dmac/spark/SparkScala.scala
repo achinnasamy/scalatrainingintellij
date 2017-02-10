@@ -1,6 +1,5 @@
 package com.dmac.spark
 
-import org.apache.spark.scheduler.cluster.CoarseGrainedClusterMessages.SparkAppConfig
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
@@ -18,8 +17,6 @@ object SparkScala extends App {
 
 
   val auaCodeBroadCast = sparkContext.broadcast(AUACodeEnum("9999999"))
-
-
   val countAccumulator = sparkContext.longAccumulator("Counter")
 
 
