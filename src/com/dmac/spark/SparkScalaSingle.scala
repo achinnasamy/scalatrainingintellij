@@ -1,3 +1,4 @@
+package com.dmac.spark
 
 import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
@@ -53,9 +54,9 @@ object SparkScalaSingle extends App {
 
   //    1. Using map()
 
-  //  val pairRDD = sparkContext.textFile("file:///home/aad-pc1/insurance.csv")
-  //                            .map(x => (x.split(",")(0),x.split(",")(1)))
-  //                            .foreach(x => println(x._1 + " " + x._2))
+    val pairRDD = sparkContext.textFile("file:////Users/dharshekthvel/ac//insurance.csv")
+                              .map(x => (x.split(",")(0),x.split(",")(1)))
+                              .foreach(x => println(x._1 + " " + x._2))
 
 
 
