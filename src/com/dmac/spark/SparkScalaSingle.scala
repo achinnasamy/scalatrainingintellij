@@ -11,6 +11,8 @@ import org.apache.spark.streaming._
   */
 object SparkScalaSingle extends App {
 
+
+
   val sparkSession = SparkSession .builder()
     .appName("SparkJOB")
     .master("local")
@@ -18,6 +20,16 @@ object SparkScalaSingle extends App {
     .getOrCreate
 
   val sparkContext = sparkSession.sparkContext
+
+
+
+  /****************************  DATASET ********************************************************/
+  import sparkSession.implicits._
+
+  val dataset = sparkSession.createDataset(List("IN", "US", "HK"))
+  dataset.map(eachElement => eachElement.concat(" - COUNTRY_CODE")).foreach(each => println(each))
+
+
 
   /***********************  Multiple Spark Session  *******************************/
   //  val sparkSession1 = SparkSession .builder()
@@ -54,9 +66,9 @@ object SparkScalaSingle extends App {
 
   //    1. Using map()
 
-    val pairRDD = sparkContext.textFile("file:////Users/dharshekthvel/ac//insurance.csv")
-                              .map(x => (x.split(",")(0),x.split(",")(1)))
-                              .foreach(x => println(x._1 + " " + x._2))
+//    val pairRDD = sparkContext.textFile("file:////Users/dharshekthvel/ac//insurance.csv")
+//                              .map(x => (x.split(",")(0),x.split(",")(1)))
+//                              .foreach(x => println(x._1 + " " + x._2))
 
 
 
@@ -139,10 +151,41 @@ object SparkScalaSingle extends App {
   /***************** Class Declaration in Scala ************************************************/
 
 
+  /***************** String methods ************************************************************/
+  // String has methods inside
+
+//  val aString = "CHE-GUERA"
+//  println(aString.drop(4))
+
+
+  /**************************  Enumeration in Scala *******************************************/
+  //println(CountryCode.FRANCE)
+
+
+  /*************** Collect Transformaation Scala ***************************************/
+//  val partialFunction : PartialFunction[String, String] = {
+//    case eachElement: String => eachElement.concat(" - CHOLA")
+//
+//  }
+//
+//
+//  val list = List ("CHERA", "PANDYA", "PALLAVA")
+//  list.collect(partialFunction).foreach(eachElement => println(eachElement));
+
+  /*************** Collect Transformaation Scala ***************************************/
+
 }
 
 
+object CountryCode extends Enumeration {
 
+  type CountryCode = Value
+
+  val INDIA  = Value("IN")
+  val FRANCE = Value("FR")
+  val RUSSIA = Value("RU")
+
+}
 
 class SparkPrinter {
 
