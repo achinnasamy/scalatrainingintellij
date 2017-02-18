@@ -31,6 +31,7 @@
         <jarDirectory url="file://$MODULE_DIR$/../../../../spark21/jars" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="scala-sdk-2.11.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.spark:spark-core_2.10:2.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.avro:avro-mapred:hadoop2:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.apache.avro:avro-ipc:1.7.7" level="project" />
@@ -160,6 +161,39 @@
     <orderEntry type="library" name="Maven: org.apache.parquet:parquet-format:2.3.0-incubating" level="project" />
     <orderEntry type="library" name="Maven: org.apache.parquet:parquet-jackson:1.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.spark:spark-streaming_2.10:2.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-mllib-local_2.10:2.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.scalanlp:breeze_2.10:0.12" level="project" />
+    <orderEntry type="library" name="Maven: org.scalanlp:breeze-macros_2.10:0.12" level="project" />
+    <orderEntry type="library" name="Maven: org.scalamacros:quasiquotes_2.10:2.0.0-M8" level="project" />
+    <orderEntry type="library" name="Maven: com.github.fommil.netlib:core:1.1.2" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.f2j:arpack_combined_all:0.1" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.opencsv:opencsv:2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.github.rwl:jtransforms:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.spire-math:spire_2.10:0.7.4" level="project" />
+    <orderEntry type="library" name="Maven: org.spire-math:spire-macros_2.10:0.7.4" level="project" />
+    <orderEntry type="library" name="Maven: com.chuusai:shapeless_2.10.4:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.elasticsearch:elasticsearch-spark-20_2.11:5.2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-sql_2.11:2.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.spark:spark-sketch_2.11:2.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.spark:spark-core_2.11:2.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.twitter:chill_2.11:0.8.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.spark:spark-launcher_2.11:2.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.spark:spark-network-common_2.11:2.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.spark:spark-network-shuffle_2.11:2.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.spark:spark-unsafe_2.11:2.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.json4s:json4s-jackson_2.11:3.2.11" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.json4s:json4s-core_2.11:3.2.11" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.json4s:json4s-ast_2.11:3.2.11" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.module:jackson-module-scala_2.11:2.6.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.spark:spark-catalyst_2.11:2.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-streaming_2.11:2.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-streaming-kafka-0-10_2.11:2.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:kafka_2.11:0.10.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.101tec:zkclient:0.8" level="project" />
+    <orderEntry type="library" name="Maven: com.yammer.metrics:metrics-core:2.2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:kafka-clients:0.10.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-tags_2.11:2.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.scalatest:scalatest_2.11:2.2.6" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.8" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4" level="project" />

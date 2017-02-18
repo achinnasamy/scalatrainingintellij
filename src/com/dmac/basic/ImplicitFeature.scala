@@ -8,7 +8,7 @@ object ImplicitFeature {
     println(s"printing age of $name")
   }
   
-  implicit def printName(age : Int) : String = {
+  implicit def getName(age : Int) : String = {
     println("obtaining name")
     "CHINNASAMY"
   }

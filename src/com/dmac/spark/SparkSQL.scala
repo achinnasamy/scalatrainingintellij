@@ -11,6 +11,7 @@ object SparkSQL extends App {
     .appName("SparkJOB").master("local[*]").config("spark.local.dir","/Users/dharshekthvel/ac")
     .getOrCreate()
 
+  import sparkSession.implicits._
   // Spark Context
 
 //  val sparkContext = sparkSession.sparkContext
@@ -32,22 +33,30 @@ object SparkSQL extends App {
 
 
 
-//  csvDataFrame.createTempView("DATATABLE")
+  csvDataFrame.createTempView("DATATABLE")
 //  csvDataFrame.createOrReplaceTempView("MYOWNTABLE")
-    csvDataFrame.createGlobalTempView("STRUCTUREDTABLE")
+//    csvDataFrame.createGlobalTempView("STRUCTUREDTABLE")
 
 
 
 
-//  sparkSession.sql("SELECT _c0,_c1 FROM DATATABLE").show(100)
+  val dataTableDataframe = sparkSession.sql("SELECT _c0,_c1 FROM DATATABLE")
+
+
+  sparkSession.sql("SELECT _c0,_c1 FROM DATATABLE").show(100)
+
+
+  // Convert the dataframe to a dataset
+  val countryMapper = sparkSession.sql("SELECT _c0,_c1 FROM DATATABLE").as[CountryMapper]
+
 
   //sparkSession.catalog.createExternalTable("SQL_TABLE","/Users/dharshekthvel/ac/storage")
 
-  val requiredDataFrame = sparkSession.sql("SELECT _c0,_c1 FROM global_temp.STRUCTUREDTABLE")
+//  val requiredDataFrame = sparkSession.sql("SELECT _c0,_c1 FROM global_temp.STRUCTUREDTABLE")
 //  requiredDataFrame.write.csv("/Users/dharshekthvel/ac/out.csvv")
 //  requiredDataFrame.write.parquet("/Users/dharshekthvel/ac/out.parquet")
 //  requiredDataFrame.write.json("/Users/dharshekthvel/ac/out.json")
-  requiredDataFrame.write.saveAsTable("/Users/dharshekthvel/ac/storage")
+ // requiredDataFrame.write.saveAsTable("/Users/dharshekthvel/ac/storage")
 
   /* Spark Catalog */
 //  sparkSession.catalog.refreshTable("TABLE_NAME")
@@ -59,3 +68,6 @@ object SparkSQL extends App {
 
 
 }
+
+
+case class CountryMapper(countryName : String, year : String)
