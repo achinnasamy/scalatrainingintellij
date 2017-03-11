@@ -30,7 +30,8 @@ object SparkScalaSingle extends App {
 //
 //  val sparkContext = sparkSession.sparkContext
 
-
+  // Design By Contract
+  //require(sc.version.replace(".","").toInt >= 160, "Spark version should be 1.6+ or greater")
 
   /****************************  DATASET ********************************************************/
 //  import sparkSession.implicits._
