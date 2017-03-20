@@ -47,12 +47,12 @@ class XMLProcessing {
    */
   def parseTheXML() {
     
-    import scala.xml._
+//    import scala.xml._
    
-    val file = XML.load("D:/ac/data/food.xml")
-    val food =  file \ "food" \ "name" 
-    
-    food.foreach { element => println(element.text) }
+//    val file = XML.load("D:/ac/data/food.xml")
+//    val food =  file \ "food" \ "name"
+//
+//    food.foreach { element => println(element.text) }
     
   }
   

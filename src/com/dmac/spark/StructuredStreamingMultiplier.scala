@@ -67,6 +67,6 @@ object StructuredStreamingMultiplier extends App {
   System.out.println("Query source status "   + finalReckoner.status)
   System.out.println("Query sink status "     + finalReckoner.lastProgress)
 
-  //finalReckoner.awaitTermination()
+  finalReckoner.awaitTermination()
 
 }

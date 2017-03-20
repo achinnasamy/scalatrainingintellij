@@ -3,7 +3,7 @@ package com.dmac.basic
 import java.io.FileReader
 import java.io.FileNotFoundException
 import scala.io.Source
-import scala.io.StdIn
+//import scala.io.StdIn
 
 /**
  * try - catch Exceptions
@@ -44,8 +44,8 @@ object ReadWriteFile {
     
     def readingFromKeyBoard() = {
       
-       val dataReadFromKeyboard = StdIn.readLine
-       
-       println(dataReadFromKeyboard)
+//       val dataReadFromKeyboard = StdIn.readLine
+//
+//       println(dataReadFromKeyboard)
     }
 }

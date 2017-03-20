@@ -1,14 +1,14 @@
 package com.dmac.spark
 
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.mllib.clustering.KMeans
-import org.apache.spark.mllib.linalg.Vectors
-import org.apache.spark.mllib.tree.DecisionTree
+//import org.apache.spark.mllib.clustering.KMeans
+//import org.apache.spark.mllib.linalg.Vectors
+//import org.apache.spark.mllib.tree.DecisionTree
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.streaming._
-import org.apache.spark.streaming.kafka010.KafkaUtils
-import org.elasticsearch.spark.rdd.EsSpark
+//import org.apache.spark.streaming.kafka010.KafkaUtils
+//import org.elasticsearch.spark.rdd.EsSpark
 
 import scala.collection.mutable
 
@@ -20,15 +20,16 @@ object SparkScalaSingle extends App {
 
 
 //
-//  val sparkSession = SparkSession .builder()
-//    .appName("SparkJOB")
-//    .master("local")
-//    .config("spark.driver.allowMultipleContexts", "true")
-//    .config("es.index.auto.create", "true")
-//    .config("spark.es.resource", "index/type")
-//    .getOrCreate
-//
-//  val sparkContext = sparkSession.sparkContext
+  val sparkSession = SparkSession .builder()
+    .appName("SparkJOB")
+    .master("local")
+    .config("spark.driver.allowMultipleContexts", "true")
+    .config("es.index.auto.create", "true")
+    .config("spark.es.resource", "index/type")
+    .getOrCreate
+
+
+  val sparkContext = sparkSession.sparkContext
 
   // Design By Contract
   //require(sc.version.replace(".","").toInt >= 160, "Spark version should be 1.6+ or greater")
@@ -39,11 +40,13 @@ object SparkScalaSingle extends App {
 //  val dataset = sparkSession.createDataset(List("IN", "US", "HK"))
 //  dataset.map(eachElement => eachElement.concat(" - COUNTRY_CODE")).foreach(each => println(each))
 
+//  val csvDataframe = sparkSession.read.csv("")
+//
+//  val csvDataSet = sparkSession.read.csv("").as[String]
+
+//  val csvDataSetText = sparkSession.read.text("hdfs://localhost:9000/covtype.info").as[String]
+//  csvDataSetText.foreach(x => println(x))
   /****************************  DATASET ********************************************************/
-
-
-
-  //val csvDataframe = sparkSession.read.csv("")
 
   /***********************  Multiple Spark Session  *******************************/
   //  val sparkSession1 = SparkSession .builder()
@@ -136,11 +139,12 @@ object SparkScalaSingle extends App {
 
   /*************************** Using the org.apache.spark.util.StatCounter object *****************/
 
-  //    val rdd = sparkContext.parallelize(List(100,
-  //                                            200,
-  //                                            300,
-  //                                            400,
-  //                                            500))
+      val rdd = sparkContext.parallelize(List(100,
+                                              200,
+                                              300,
+                                              400,
+                                              500))
+
   //
   //
   //    val max = rdd.stats().max
@@ -191,17 +195,17 @@ object SparkScalaSingle extends App {
 
 
   /*********************************  Elastic Search Connector ************************/
-  import org.elasticsearch.spark._
-  import org.elasticsearch.spark.streaming._
+//  import org.elasticsearch.spark._
+//  import org.elasticsearch.spark.streaming._
 
 //
-  val sparkSession = SparkSession .builder()
-                                  .appName("SparkJOB")
-                                  .master("local")
-                                  .config("spark.driver.allowMultipleContexts", "true")
-                                  .config("es.index.auto.create", "true")
-                                  .config("spark.es.resource", "index/type")
-                                  .getOrCreate
+//  val sparkSession = SparkSession .builder()
+//                                  .appName("SparkJOB")
+//                                  .master("local")
+//                                  .config("spark.driver.allowMultipleContexts", "true")
+//                                  .config("es.index.auto.create", "true")
+//                                  .config("spark.es.resource", "index/type")
+//                                  .getOrCreate
 //
 //    val sparkConfig = new SparkConf().setMaster("local[*]")
 //                                     .setAppName("StreamingJOB")
@@ -210,18 +214,14 @@ object SparkScalaSingle extends App {
 //    val streamingContext = new StreamingContext(sparkConfig, Seconds(1))
 //
 
-  val sparkContext = sparkSession.sparkContext
-
-  val supportVectorList = List(SVMSupportVector("mesh", "12", 1),
-                               SVMSupportVector("maille", "15", 2),
-                               SVMSupportVector("referential", "33", 2))
+//  val sparkContext = sparkSession.sparkContext
 
 
-   val rdd = sparkContext.makeRDD(supportVectorList)
+
 
     //Save the data
-   EsSpark.saveToEs(rdd, "spark99/svmIndex")
-    rdd.saveToEs("spark99/svmIndex")
+//   EsSpark.saveToEs(rdd, "spark99/svmIndex")
+//    rdd.saveToEs("spark99/svmIndex")
 
 //
 //  //Read the data
@@ -362,10 +362,23 @@ object SparkScalaSingle extends App {
 
 
 
+    val rangeOfNumbers = 1 to 100
+
+
+    val numberRDD = sparkContext.parallelize(rangeOfNumbers)
+
+
+    val multipliedRDD =   numberRDD.map(x => x*2)
+
+
+    val unionRDD = numberRDD.union(multipliedRDD)
+
+
+    val keyValueUnionRDD = unionRDD.map(x=> (x,x))
 
 
 
-
+    println(keyValueUnionRDD.toDebugString)
 
 
 
@@ -401,4 +414,4 @@ name_3: String,name_4: String,name_5: String,name_6: String,name_7: String,
                              name_8: String,name_9: String,name_10: String,name_11: String,
                              name_12: String,name_13: String,name_14: String,name_15: String,
                              name_16: String,name_17: String,name_18: String,name_19: String,
-                             name_20: String,name_21: String,name_22: String,name_23: String, name_24: String)
+                             name_20: String,name_21: String,name_22: String)
