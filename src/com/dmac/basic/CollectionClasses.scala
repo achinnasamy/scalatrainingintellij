@@ -115,8 +115,18 @@ object CollectionClasses {
                                            3 -> "ResidentDataCacheCleaner",
                                            4 -> "LicenseCacheCleaner")
           cacheCleanerMutableMap += (5 -> "_END_")
+
+          val firstElement = cacheCleanerMutableMap.getOrElseUpdate(6, "BioMetricCacheCleaner")
+          val secondElement = cacheCleanerMutableMap.getOrElse(7, "IrisCacheCleaner")
+          println("Updated the original map - " + cacheCleanerMutableMap.get(6))
+          println("Updated the original map - " + cacheCleanerMutableMap.get(7))
+
+          println("In Mutable Map : " + firstElement)
+
           
           cacheCleanerMutableMap foreach(x => println(x._1 + x._2))
+
+
      }
       
     

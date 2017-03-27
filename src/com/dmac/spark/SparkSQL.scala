@@ -27,6 +27,7 @@ object SparkSQL extends App {
 
   val csvDataFrame = sparkSession.read.csv("/Users/dharshekthvel/ac/training/sparktraining/data/undata1.csv")
 
+
   //csvDataFrame.show(10)
 
   //csvDataFrame.select("_c0").show(10)

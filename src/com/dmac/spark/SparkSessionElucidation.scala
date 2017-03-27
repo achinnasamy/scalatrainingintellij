@@ -15,6 +15,8 @@ object SparkSessionElucidation extends App {
                                  .getOrCreate()
   val sparkContext = sparkSession.sparkContext
 
+
+
   val file = sparkContext.textFile("/Users/dharshekthvel/ac/auth.csv")
 
   file.foreach(eachLine => println(eachLine))

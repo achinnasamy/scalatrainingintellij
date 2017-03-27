@@ -33,6 +33,7 @@ object CreationOfRDD extends App {
   hadoopFileRDD.foreach(x => println(x))
 
 
+
   import sparkSession.implicits._
 
   val covDataSet = sparkSession.read.text("hdfs://localhost:9000/covtype.info").as[String]

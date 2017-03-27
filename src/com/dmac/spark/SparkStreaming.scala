@@ -1,6 +1,10 @@
 package com.dmac.spark
 
+import com.fasterxml.jackson.databind.deser.std.StringDeserializer
+import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.streaming.{Seconds, StreamingContext}
+
 
 /**
   * Structured Streaming
@@ -9,9 +13,14 @@ import org.apache.spark.sql.SparkSession
   */
 object SparkStreaming extends App {
 
-  val sparkSession = SparkSession.builder()
-                                 .appName("StreamingJOB")
-                                 .getOrCreate()
+
+    val sparkConf = new SparkConf()
+    sparkConf.setAppName("StreamingJOB").setMaster("local[*]")
+
+    val sparkContext1 = new SparkContext(sparkConf)
+
+    val streamingContext = new StreamingContext(sparkContext1, Seconds(2))
+
 
 
 

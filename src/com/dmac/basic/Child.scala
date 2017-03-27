@@ -6,3 +6,17 @@ class Child extends Parent {
   
   var name = "_CHILD_"
 }
+
+//class JSONFactory extends XMLFactory {
+//  override def readXML(): Unit = {
+//
+//  }
+//}
+//
+//class XMLFileFactory extends FileFactorys {
+//
+//  override def getMeFile(): Unit = {
+//
+//  }
+//
+//}

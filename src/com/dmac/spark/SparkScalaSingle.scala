@@ -123,17 +123,7 @@ object SparkScalaSingle extends App {
 
 
   /********************************  Spark Streaming *********************************************/
-  //  val sparkConfig = new SparkConf().setMaster("local[*]")
-  //                                   .setAppName("StreamingJOB")
-  //                                   .set("spark.driver.allowMultipleContexts", "true");
-  //
-  //  val streamingContext = new StreamingContext(sparkConfig, Seconds(1))
-  //
-  //  val eachStream = streamingContext.socketTextStream("localhost", 1234)
-  //  eachStream.print()
-  //
-  //  streamingContext.start()
-  //  streamingContext.awaitTermination()
+
   /********************************  Spark Streaming *********************************************/
 
 

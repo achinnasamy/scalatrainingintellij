@@ -13,8 +13,6 @@ object Bounds {
 //    animalShouts.whoIsShouting(new Dog())
 //    //animalShouts.whoIsShouting(new Animal())
 
-
-
     val alphabets = new Alphabets
     alphabets.whatAlphabetIsIam(new A)
     alphabets.whatAlphabetIsIam(new B)
