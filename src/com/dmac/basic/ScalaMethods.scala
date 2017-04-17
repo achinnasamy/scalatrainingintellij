@@ -28,7 +28,14 @@ object ScalaMethods {
     // A Function Name as a Variable
     val functionNameAsVariable = (i:Int) => { i + 10}
     simpleList.map(functionNameAsVariable).foreach { x => println(x) }
-    
+
+
+    // All the below three are legal when calling a scala method
+    methodClass.methodName("SOME_STRING")
+    methodClass methodName "SOME_STRING"
+    methodClass methodName {
+      "SOME_STRING"
+    }
   }
   
   
@@ -41,8 +48,8 @@ class MethodClass {
   /**
    		A Simple Function
    */
-  def methodName(variableName : String) : Unit = {
-    
+  def methodName(variableName : String) = {
+    println("Inside the methodName method - " + variableName)
   }
   
   /**
@@ -78,21 +85,5 @@ class MethodClass {
   def designByContract(member : String) {
     require(!member.isEmpty(), "MethodClass : member should not be empty")
   }
-  /**
-   
-  		A Higher Order Function
-  	
-   */
-  
-  
-  /**
-   		A Partial Order Function
-   */
-  
-  
-  
-  /**  
-   		Currying Functions
-   */
   
 }

@@ -111,11 +111,6 @@ object SparkReadFile {
 case class AuthenticationDTO(auaName : String, provider : String, city : String)
 
 
-class MyOwnDataPartitioner extends Partitioner {
-  override def numPartitions: Int = numPartitions
-
-  override def getPartition(key: Any): Int = ???
-}
 
 
 

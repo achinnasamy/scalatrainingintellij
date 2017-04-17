@@ -6,6 +6,12 @@ object ImplicitParameter  extends App {
   
   val auth = new Auth
   auth.encryptDataUsingSessionKey("Authenticate my swipe with default")
+
+  import com.dmac.basic.ImplicitFeature.MoneyToWords
+  val i = 100
+
+  println(i.words())
+
 }
 
 
