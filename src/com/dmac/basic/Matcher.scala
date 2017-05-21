@@ -1,3 +1,4 @@
+
 //package com.dmac.basic
 //
 //import scala.io.StdIn
@@ -28,3 +29,26 @@
 //
 //  println(month)
 //}
+
+
+/*
+object IBMSparkFirst extends App {
+
+
+  val myInput = "FLIP" : String
+
+  val ww = myInput match {
+    case "STRATEGY" => WalmartDTO
+    case "FLIP" => Amazon
+    case _ => Flipkart("FLIPKART")
+  }
+
+  ww.asInstanceOf[WalmartDTO]
+  ww.isInstanceOf
+}
+
+case class WalmartDTO(name:String)
+case class Flipkart(name:String)
+case class Amazon(name:String)
+
+*/
