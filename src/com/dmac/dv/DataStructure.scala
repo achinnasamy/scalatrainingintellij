@@ -1,7 +1,7 @@
 package com.dmac.dv
 
 /**
-  * Created by dharshekthvel on 21/3/17.
+  * Created by dharshekthvel
   */
 object DataStructure {
   def apply(name: String): DataStructure = {
@@ -18,5 +18,9 @@ class DataStructure() {
   }
   def set(name : String) {
     _name = name
+  }
+
+  def toUpperCase(): Unit = {
+
   }
 }

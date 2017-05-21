@@ -2,8 +2,9 @@ package com.dmac.spark
 
 import com.fasterxml.jackson.databind.deser.std.StringDeserializer
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{Encoders, SparkSession}
 import org.apache.spark.streaming.{Seconds, StreamingContext}
+import parquet.format.Encoding
 
 
 /**
@@ -13,15 +14,45 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
   */
 object SparkStreaming extends App {
 
+    val sparkSession = SparkSession.builder()
+                                    .appName("SparkJOB")
+                                    .master("local[*]")
+                                    .config("spark.driver.allowMultipleComtext", "true")
+                                      .getOrCreate()
 
-    val sparkConf = new SparkConf()
-    sparkConf.setAppName("StreamingJOB").setMaster("local[*]")
+    val csvReadDataFrame = sparkSession.sqlContext.read.csv("/home/dharshekthvel/ac/code/scalatrainingintellij/data/auth.csv")
 
-    val sparkContext1 = new SparkContext(sparkConf)
-
-    val streamingContext = new StreamingContext(sparkContext1, Seconds(2))
+    //csvReadDataFrame.show(100)
+    //csvReadDataFrame.select("_c0").show(100)
 
 
+    csvReadDataFrame.createTempView("IBM_AUTH_TABLE")
+      //.createOrReplaceTempView()
+      //.createTempView("IBM_AUTH_TABLE")
+
+
+    sparkSession.sql("SELECT _c0 from IBM_AUTH_TABLE").show(100)
+
+
+    val df = sparkSession.sqlContext
+                            .read
+                            .format("jdbc")
+                            .options(Map("url" -> "",
+                                         "user" -> "",
+                                         "password" -> "",
+                                         "dbtable" -> ""))
+      .load()
+
+
+    df.select("col_name").show(100)
+
+
+    val list = List("a", "b", "c")
+
+    list.map( eachObj =>  eachObj.toUpperCase)
+
+    for (i <- list)
+        i.toUpperCase
 
 
 }

@@ -7,7 +7,9 @@ object FileOperations extends App {
   
   val fileOperations = new FileOperations
   //fileOperations.readFile("D:/ac/data/auth.txt")
-  fileOperations.readCSVFile("D:/ac/data/auth.txt")
+  //fileOperations.readCSVFile("D:/ac/data/auth.txt")
+
+  println (fileOperations.readFromURL())
 }
 
 case class AuthBean(val authCode:String, val auaCode : String)
@@ -26,7 +28,11 @@ class FileOperations {
       
     file.close
   }
-  
+
+  def readFromURL() : String = {
+    val data = Source.fromURL("https://www.scala-lang.org/")
+    data.getLines().mkString
+  }
   
   def readCSVFile(fileName: String) : Unit = {
     
