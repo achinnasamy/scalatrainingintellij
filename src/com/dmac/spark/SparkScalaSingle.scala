@@ -20,16 +20,17 @@ object SparkScalaSingle extends App {
 
 
 //
-  val sparkSession = SparkSession .builder()
-    .appName("SparkJOB")
-    .master("local")
-    .config("spark.driver.allowMultipleContexts", "true")
-    .config("es.index.auto.create", "true")
-    .config("spark.es.resource", "index/type")
-    .getOrCreate
-
-
-  val sparkContext = sparkSession.sparkContext
+//  val sparkSession = SparkSession .builder()
+//    .appName("SparkJOB")
+//    .master("local")
+//    .config("spark.driver.allowMultipleContexts", "true")
+//    .config("es.index.auto.create", "true")
+//    .config("spark.es.resource", "index/type")
+//    .getOrCreate
+//
+//
+//
+//  val sparkContext = sparkSession.sparkContext
 
   // Design By Contract
   //require(sc.version.replace(".","").toInt >= 160, "Spark version should be 1.6+ or greater")
@@ -39,11 +40,11 @@ object SparkScalaSingle extends App {
 //
 //  val dataset = sparkSession.createDataset(List("IN", "US", "HK"))
 //  dataset.map(eachElement => eachElement.concat(" - COUNTRY_CODE")).foreach(each => println(each))
-
+//
 //  val csvDataframe = sparkSession.read.csv("")
 //
 //  val csvDataSet = sparkSession.read.csv("").as[String]
-
+//
 //  val csvDataSetText = sparkSession.read.text("hdfs://localhost:9000/covtype.info").as[String]
 //  csvDataSetText.foreach(x => println(x))
   /****************************  DATASET ********************************************************/
@@ -128,12 +129,12 @@ object SparkScalaSingle extends App {
 
 
   /*************************** Using the org.apache.spark.util.StatCounter object *****************/
-
-      val rdd = sparkContext.parallelize(List(100,
-                                              200,
-                                              300,
-                                              400,
-                                              500))
+//
+//      val rdd = sparkContext.parallelize(List(100,
+//                                              200,
+//                                              300,
+//                                              400,
+//                                              500))
 
   //
   //
@@ -171,11 +172,11 @@ object SparkScalaSingle extends App {
 
 
   /*************** Collect Transformaation Scala ***************************************/
-//  val partialFunction : PartialFunction[String, String] = {
-//    case eachElement: String => eachElement.concat(" - CHOLA")
-//
-//  }
-//
+  val partialFunction : PartialFunction[String, String] = {
+    case eachElement: String => eachElement.concat(" - CHOLA")
+
+  }
+
 //
 //  val list = List ("CHERA", "PANDYA", "PALLAVA")
 //  list.collect(partialFunction).foreach(eachElement => println(eachElement));
@@ -264,6 +265,8 @@ object SparkScalaSingle extends App {
 //    Subscribe[String, String](topics, kafkaParams)
 //  )
 //
+
+
 //  stream.map(record => (record.key, record.value)).print()
 //
 //  streamingContext.start()
@@ -274,21 +277,22 @@ object SparkScalaSingle extends App {
 
   /*********************************  Basic Socket Streaming - New API ************************/
 
-//  val sparkConf = new SparkConf()
-//
-//  sparkConf.setAppName("StreamingJOB")
-//           .setMaster("local[*]")
-//
-//  val sparkContext1 = new SparkContext(sparkConf)
-//
-//  val streamingContext = new StreamingContext(sparkContext1, Seconds(1))
-//
-//  val stream = streamingContext.socketTextStream("localhost", 1234)
-//
-//  stream.map(x => x).print()
-//
-//  streamingContext.start()
-//  streamingContext.awaitTermination()
+  val sparkConf = new SparkConf()
+
+  sparkConf.setAppName("StreamingJOB")
+           .setMaster("local[*]")
+
+  val sparkContext1 = new SparkContext(sparkConf)
+
+  val streamingContext = new StreamingContext(sparkContext1, Seconds(1))
+
+  val stream = streamingContext.socketTextStream("localhost", 1234)
+
+  stream.print()
+
+  streamingContext.start()
+  streamingContext.awaitTermination()
+
   /*********************************  Basic Socket Streaming - New API ************************/
 
 
@@ -352,23 +356,23 @@ object SparkScalaSingle extends App {
 
 
 
-    val rangeOfNumbers = 1 to 100
-
-
-    val numberRDD = sparkContext.parallelize(rangeOfNumbers)
-
-
-    val multipliedRDD =   numberRDD.map(x => x*2)
-
-
-    val unionRDD = numberRDD.union(multipliedRDD)
-
-
-    val keyValueUnionRDD = unionRDD.map(x=> (x,x))
-
-
-
-    println(keyValueUnionRDD.toDebugString)
+//    val rangeOfNumbers = 1 to 100
+//
+//
+//    val numberRDD = sparkContext.parallelize(rangeOfNumbers)
+//
+//
+//    val multipliedRDD =   numberRDD.map(x => x*2)
+//
+//
+//    val unionRDD = numberRDD.union(multipliedRDD)
+//
+//
+//    val keyValueUnionRDD = unionRDD.map(x=> (x,x))
+//
+//
+//
+//    println(keyValueUnionRDD.toDebugString)
 
 
 

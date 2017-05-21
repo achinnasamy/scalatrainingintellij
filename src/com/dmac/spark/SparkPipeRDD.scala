@@ -18,7 +18,7 @@ object SparkPipeRDD extends App {
   val dataRDD = sc.parallelize(data)
 
   val output = dataRDD.pipe("ls -l").collect();
-output.foreach(x => println(x))
+  output.foreach(x => println(x))
 
 
 }
