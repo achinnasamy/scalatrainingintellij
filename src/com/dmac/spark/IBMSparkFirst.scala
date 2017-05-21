@@ -1,5 +1,6 @@
 package com.dmac.spark
 
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
@@ -7,19 +8,20 @@ import org.apache.spark.{SparkConf, SparkContext}
   */
 object IBMSparkFirst extends App {
 
-  val sparkConfig = new SparkConf
-  sparkConfig.setAppName("IBMJOB")
-  sparkConfig.setMaster("local[*]")
 
-  val sparkContext = new SparkContext(sparkConfig)
+  val conf = new SparkConf()
+  conf.setMaster("local[*]")
+  conf.setAppName("BaseSparkJob")
+
+  val sparkSession = SparkSession.builder()
+    .appName("").master("").config("","").getOrCreate();
+
+  val sc = sparkSession.sparkContext;
 
 
-  //transformation/covtype.info
-  val textFileRDD = sparkContext.textFile("file:////home/dharshekthvel/ac/a.csv");
-  textFileRDD.map(x => x)
+  val sparkContext = new SparkContext(conf)
 
-  //action
-  textFileRDD.foreach(x => println(x))
+  sparkContext.longAccumulator("")
 
-  sparkContext.stop()
 }
+
