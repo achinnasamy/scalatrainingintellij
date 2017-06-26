@@ -1,7 +1,6 @@
 package com.dmac.basic
 
 import scala.concurrent._
-import scala.concurrent.ExecutionContext.Implicits.global._
 import scala.concurrent.ExecutionContext.Implicits.global
 
 /**

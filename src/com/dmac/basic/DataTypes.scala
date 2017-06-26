@@ -31,6 +31,19 @@ object DataTypes {
     println(declarationOfString); //Semicolon is not mandatory
     
     println(anotherVersionOfDeclarationOfString)
+
+
+		// Multiple Assignments
+		val (name: String, age: Int, salary : Float) = ("Chola", 100, 102f)
+
+
+		println(name)
+
+
     
   }
+
+	@inline def reckonerData(ref : Int) = {
+
+	}
 }

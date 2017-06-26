@@ -18,6 +18,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../../src/test/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../target/scala-2.11/resource_managed/test" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target" />
       <excludeFolder url="file://$MODULE_DIR$/../../target/classes" />
       <excludeFolder url="file://$MODULE_DIR$/../../target/maven-archiver" />
       <excludeFolder url="file://$MODULE_DIR$/../../target/maven-status" />
@@ -55,6 +56,16 @@
         </SOURCES>
         <jarDirectory url="file://$MODULE_DIR$/../../../../bin/kafka2110102/libs" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/../../../../bin/kafka2110102/libs" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../../../bin/jars" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/../../../../bin/jars" recursive="false" />
       </library>
     </orderEntry>
   </component>

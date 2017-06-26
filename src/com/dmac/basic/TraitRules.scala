@@ -5,7 +5,27 @@ object TraitRules extends App {
   
   val ocean = new OceanApp with Debugger
   ocean.printTrace("Tracing an error")
-  
+
+  // A trait can be instantiated in a anonymous way
+  val debugger = new Debugger {
+
+  }
+
+  debugger printTrace "debugger trait anonimized"
+
+
+  // A trait can be instantiated in a anonynous way.
+  // But abstract methods has to be implemented.
+  val machineLearning = new MachineLearning {
+    override def supportVectorMachine(input: String) = {
+
+    }
+  }
+
+
+
+
+
 }
 
 /************************************************************************************/
@@ -51,6 +71,10 @@ class MyClient extends H20 {
   
   def bayesianClassification(input : String) = {
     // Concrete Implementation
+  }
+
+  def machineLearningProcessor(ml : MachineLearning) = {
+
   }
 }
 /************************************************************************************/

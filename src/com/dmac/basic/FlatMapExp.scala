@@ -14,8 +14,9 @@ object FlatMapExp extends App {
 
 
 
-
+  // All the below definitions are legal
   list.map(x => x.toUpperCase).foreach(each => println(each))
   list.map({x => x.toUpperCase}).foreach(each => println(each))
   list.map { x => x.toUpperCase } .foreach(each => println(each))
+  list.map(_.toUpperCase).foreach(println(_))
 }

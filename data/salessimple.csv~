@@ -1,0 +1,5 @@
+Year,Productline,Producttype,Product,Ordermethodtype,Retailercountry,Revenue,Plannedrevenue,Productcost,Quantity,Unitcost,Unitprice,Grossprofit,Unitsaleprice
+2004,CampingEquipment,CookingGear,TrailChefWaterBag,Telephone,UnitedStates,315044.33,437477.15,158371.76,66385,2.55285714,6.59,156672.57,5.19571429
+2008,PersonalAccessories,Knives,MaxGizmo,Web,Sweden,315044.33,437477.15,158371.76,66385,2.55285714,6.59,156672.57,5.19571429
+2007,PersonalAccessories,Watches,MountainManDigital,Mail,Australia,315044.33,437477.15,158371.76,66385,2.55285714,6.59,156672.57,5.19571429
+2010,Personal,Watches,MountainDigital,Mail,Australia,315044.33,437477.15,158371.76,66385,2.55285714,6.59,156672.57,5.19571429

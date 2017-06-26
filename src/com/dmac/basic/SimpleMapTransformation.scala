@@ -8,20 +8,20 @@ object SimpleMapTransformation extends App {
 
 
 
-//  val myList = List("IBM",
-//                    "IS",
-//                    "DOING",
-//                    "GOOD")
-//
-//  val mappedIBMDTO = myList.map(eachLine => IBMDataCarrier(eachLine, eachLine.length))
-//  //mappedIBMDTO.foreach(x => println(x))
-//
-//
-//  val fileFactorys = new FileFactorys
-//
-//  val data = fileFactorys.getMeIBMDTO(1)
-//
-//  println(data.get)
+  val myList = List("IBM",
+                    "IS",
+                    "DOING",
+                    "GOOD")
+
+  val mappedIBMDTO = myList.map(eachLine => IBMDataCarrier(eachLine, eachLine.length))
+  //mappedIBMDTO.foreach(x => println(x))
+
+
+  val fileFactorys = new FileFactorys
+
+  val data = fileFactorys.getMeIBMDTO(1)
+
+ // println(data.get)
 
 
 }

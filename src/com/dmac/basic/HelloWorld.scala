@@ -9,4 +9,10 @@ object HelloWorld {
     println("The world is good")
   }
 
+
+
+  import com.dmac.basic.ImplicitClassesFeature._
+  val out = "NLP_".letMoonBeAddedToString()
+
+  println(out)
 }

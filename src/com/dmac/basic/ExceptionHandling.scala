@@ -13,15 +13,9 @@ object ExceptionHandling extends App {
       
     }
     catch {
-      case ex: FileNotFoundException => {
-        println("File Not Found " + ex.getMessage)
-      }
-      case ex: IOException => {
-        println("IO Exception " + ex.getMessage)
-      }
-      case ex: IllegalStateException => {
-        println("Message - " + ex.getMessage)
-      }
+      case ex: FileNotFoundException  => { println("File Not Found " + ex.getMessage)  }
+      case ex: IOException            => { println("IO Exception " + ex.getMessage) }
+      case ex: IllegalStateException  => { println("Message - " + ex.getMessage) }
     }
 
 }
