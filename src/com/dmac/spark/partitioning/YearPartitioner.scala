@@ -1,5 +1,6 @@
 package com.dmac.spark.partitioning
 
+import org.apache.spark.storage.StorageLevel
 import org.apache.spark.{Partitioner, SparkConf, SparkContext}
 
 /**
@@ -12,10 +13,20 @@ object YearPartitionerMain extends App {
   sparkConfig.setMaster("local[*]")
 
   val sparkContext = new SparkContext(sparkConfig)
+
+  sparkContext.objectFile("")
+
   val list = List(1923, 1800, 2012, 1834, 1987, 2014);
 
 
   val listRDD = sparkContext.parallelize(list)
+
+  listRDD.persist(StorageLevel.OFF_HEAP)
+  listRDD.cache()
+
+  listRDD.unpersist()
+
+
 
 
   val pairRDD = listRDD.map(x => (x,0))
@@ -46,6 +57,7 @@ class YearPartitioner extends Partitioner {
   }
 
   override def getPartition(key: Any): Int = {
+
     val k = key.asInstanceOf[Int]
     if (k > 2000)
       10

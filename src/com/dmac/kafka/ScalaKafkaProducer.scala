@@ -21,11 +21,13 @@ object ScalaKafkaProducer {
     props.put("linger.ms", "1")
     props.put("batch.size","123456")
     props.put("compression.codec","1")
+
+    props.put("request.required.acks", "-1")
     //props.put("partitioner.class", "com.dmac.kafka.KafkaUserCustomPartitioner");
 
     val producer = new KafkaProducer[String, String](props)
 
-    val data = new ProducerRecord[String, String]("TIGER", "A", "MAY-17-Revolution-1")
+    val data = new ProducerRecord[String, String]("VEL", "MAY-17-Revolution-1")
 
 
     for (i <- 1 to 100) {

@@ -24,10 +24,10 @@
 //
 //  sparkSession.sparkContext.textFile("").map(z => {
 //
-//    myOwnAccumulator.add(MeshFile("",0))
+//    myOwnAccumulator.add(MeshFile("Echencier",1001))
 //  })
 //
-//  myOwnAccumulator.value
+//  println(myOwnAccumulator.value)
 //
 //}
 //

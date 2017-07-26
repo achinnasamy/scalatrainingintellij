@@ -45,6 +45,9 @@ object ScalaKafkaConsumer {
       consumer.commitSync()
       consumer.commitAsync()
 
+
+      //consumer.seekToBeginning()
+
       for (record<-records.asScala){
         println(record)
       }
