@@ -9,39 +9,39 @@
 //object SparkSubqueries {
 //
 //
-//  def main(args : Array[String]) = {
-//
-//
-//    val sparkSession = SparkSession.builder().appName("SQLJob").master("local[*]").getOrCreate()
-//
-//
-//    /**********************************************************************************************/
-//    /* Basic Query - Election Data  */
-//    /**********************************************************************************************/
-//    import sparkSession.implicits._
-////
-////    val electionCSV = sparkSession.sqlContext.read.option("header", "true")
-////      .csv("/home/dharshekthvel/Desktop/ac/code/scalatrainingintellij/data/electiondata.csv")
-////
-////    electionCSV.createOrReplaceTempView("ELECTION")
-////    //electionCSV.show(10)
-////
-////    val electionDF = electionCSV.toDF()
-////
-////    val toInt    = udf[Int, String]( _.toInt)
-////
-////    sparkSession.sql("SELECT * FROM ELECTION").show(999)
-////
-////    val electionCSVModifiedSchema = electionCSV.withColumn("CQ", toInt(electionDF.col("CQ")))
-////    electionCSVModifiedSchema.groupBy("REP_PARTY", "STATE").sum("CQ").show(100)
-////
-////    //sparkSession.sql("SELECT REP_NAME, CQ FROM ELECTION").show(999)
-////
-//
-//    val salesCSV = sparkSession.sqlContext.read.option("header","true")
-//                               .csv("/home/dharshekthvel/Desktop/ac/code/scalatrainingintellij/data/sales.csv")
-//
-//
+  def main(args : Array[String]) = {
+
+
+    val sparkSession = SparkSession.builder().appName("SQLJob").master("local[*]").getOrCreate()
+
+
+    /**********************************************************************************************/
+    /* Basic Query - Election Data  */
+    /**********************************************************************************************/
+    import sparkSession.implicits._
+
+    val electionCSV = sparkSession.sqlContext.read.option("header", "true")
+      .csv("/home/dharshekthvel/Desktop/ac/code/scalatrainingintellij/data/electiondata.csv")
+
+    electionCSV.createOrReplaceTempView("ELECTION")
+    //electionCSV.show(10)
+
+    val electionDF = electionCSV.toDF()
+
+    val toInt    = udf[Int, String]( _.toInt)
+
+    sparkSession.sql("SELECT * FROM ELECTION").show(999)
+
+    val electionCSVModifiedSchema = electionCSV.withColumn("CQ", toInt(electionDF.col("CQ")))
+    electionCSVModifiedSchema.groupBy("REP_PARTY", "STATE").sum("CQ").show(100)
+
+    //sparkSession.sql("SELECT REP_NAME, CQ FROM ELECTION").show(999)
+
+
+    val salesCSV = sparkSession.sqlContext.read.option("header","true")
+                               .csv("/home/dharshekthvel/Desktop/ac/code/scalatrainingintellij/data/sales.csv")
+
+
 //
 //    /**********************************************************************************************/
 //    /* Common Operations   */
